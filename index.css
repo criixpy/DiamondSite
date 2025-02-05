@@ -1,0 +1,266 @@
+body {
+    background-color: #CCCCFF;
+}
+
+/* ---------- envelope css ---------- */
+
+.envelope-wrapper {
+    height: 380px
+}
+
+#envelope {
+    position: relative;
+    height: 220px;
+    width: 320px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 75%;
+    background-color: #CF9FFF;
+    box-shadow: 0 4px 20px rgba(112, 41, 99, .5);
+}
+
+#envelope:hover {
+    cursor: pointer;
+}
+
+.front {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 3;
+}
+
+.flap {
+    border-top: 120px solid #cf96f5;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-bottom: 82px solid transparent;
+    transform-origin: top;
+}
+
+.pocket {
+    border-left: 160px solid #E0B0FF;
+    border-right: 160px solid #E0B0FF;
+    border-bottom: 110px solid #eac9ff;
+    border-top: 110px solid transparent;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* ---------- letter css ---------- */
+
+.letter {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    height: 95%;
+    top: 5%;
+    border-radius: 10px;
+    box-shadow: 0 2px 26px rgba(112, 41, 99,.12);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.letter::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.words {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 14%;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #5c2151;
+}
+
+/* ---------- per letter css ---------- */
+
+.line1 {
+    top: 0%;
+}
+.line2 {
+    top: 10%;
+}
+.line3 {
+    top: 20%;
+}
+.line4 {
+    top: 30%;
+}
+.line5 {
+    top: 40%;
+}
+.line6 {
+    top: 50%;
+}
+.line7 {
+    top: 65%;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ---------- open envelope css ---------- */
+
+.open .flap {
+    transform: rotateX(180deg);
+    transition: transform 0.4s ease, z-index 0.6s;
+    z-index: 1;
+}
+
+.close .flap {
+    transform: rotatex(0deg);
+    transition: transform 0.4s 0.6s ease, z-index 1s;
+    z-index: 5;
+}
+
+.open .letter {
+    transform: translatey(-130px);
+    transition: transform 0.4s 0.6s ease, z-index 0.6s;
+    z-index: 2;
+}
+
+.close .letter {
+    transform: translatey(0deg);
+    transition: transform 0.4s ease, z-index 1s;
+    z-index: 1;
+}
+
+/* ---------- hearts css ---------- */
+
+.hearts {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    right: 10%;
+}
+
+.heart:before, .heart:after {
+    position: absolute;
+    content: "";
+    background: red;
+    width: 50px;
+    height: 80px;
+    left: 50px;
+    top: 0;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* ---------- close hearts ---------- */
+
+.close .heart {
+    opacity: 0;
+    animation: none;
+}
+
+.a1 {
+    left: 20%;
+    transform: scale(0.6);
+    opacity: 1;
+    animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a2 {
+    left: 55%;
+    transform: scale(1);
+    opacity: 1;
+    animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a3 {
+    left: 10%;
+    transform: scale(0.8);
+    opacity: 1;
+    animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+/* ---------- animation keyframes ---------- */
+
+@keyframes slideUp {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -600px;
+    }
+}
+
+@keyframes sideSway {
+    0% {
+        margin-left: 0%;
+    }
+    100% {
+        margin-left: 50px;
+    }
+}
+
+/* ---------- buttons ---------- */
+
+.reset {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.reset button {
+    color: #853877;
+    font-weight: 800;
+    font-style: normal;
+    transition: all 0.1s linear;
+    background-color: transparent;
+    border: solid 2px #853877;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 20px;
+    line-height: 2em;
+    height: 50px;
+    width: 100px;
+    text-decoration: none;
+    min-width: 100px;
+    outline: none;
+}
+
+.reset button:hover {
+    background-color: #853877;
+    color: #CCCCFF;
+    cursor: pointer;
+}
+
+/* ---------- Emoticon ---------- */
+
+.greet {
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #702963;
+    font-size: 40px;
+}
